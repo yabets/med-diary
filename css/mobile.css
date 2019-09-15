@@ -1,0 +1,17 @@
+.main {
+  flex-direction: column;
+
+}
+
+.list {
+  flex: 1 0 auto;
+}
+
+.detail {
+  background: red;
+  flex: 1 0 auto;
+}
+
+.hidden {
+  display: none;
+}

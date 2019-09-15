@@ -1,0 +1,13 @@
+.list {
+  flex-direction: column;
+  background: #e3e3e3;
+  height: 100%;
+  flex: 2 0 auto;
+}
+
+.detail {
+  flex-direction: column;
+  background: #b3b3b3;
+  height: 100%;
+  flex: 5 1 auto;
+}

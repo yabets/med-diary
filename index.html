@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+
+  <title>MED diary</title>
+
+  <link rel='stylesheet' type='text/css' href='css/style.css' />
+
+  <link rel='stylesheet' media='screen and (max-width: 700px)' href='css/mobile.css' />
+  <link rel='stylesheet' media='screen and (min-width: 701px)' href='css/wide.css' />
+
+</head>
+
+<body>
+  <div class="container flex-columns">
+    <div class="header row flex yellow">
+      <h1 class="title">Med Diary</h1>
+      <div class="sort-form">
+        <label for="sort">Sort by: </label>
+        <select id="sort">
+          <option value="date-dec">Recent date</option>
+          <option value="date-asc">Date: Old to New</option>
+          <option value="spell-dec">Alphabetical Z -> A</option>
+          <option value="spell-ace">Alphabetical A -> Z</option>
+        </select>
+        <input class="button primary" type="submit" value="Sort">
+      </div>
+    </div>
+    <div class="main row flex">
+      <div class="list flex relative">
+        <ul class="card-container row">
+
+          <li class="card add-container no-padding curved-corners">
+            <div class="button row primary add-btn curved-corners">
+              ADD New Dairy
+            </div>
+          </li>
+
+          <li class="card active-card">
+            <div class="flex-columns">
+              <div class="row spread">
+                <span class="subject">subject</span>
+                <span class="timestamp float-right">Mon, Sep 16, 2019 17:30</span>
+              </div>
+              <div clas="row">
+                <span class="highlight">I felt some pain so I take water . . .</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="card">
+            <div class="flex-columns">
+              <div class="row spread">
+                <span class="subject">subject</span>
+                <span class="timestamp float-right">Mon, Sep 16, 2019 17:30</span>
+              </div>
+              <div clas="row">
+                <span class="highlight">I felt some pain so I take water . . .</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="card">
+            <div class="flex-columns">
+              <div class="row spread">
+                <span class="subject">subject</span>
+                <span class="timestamp float-right">Mon, Sep 16, 2019 17:30</span>
+              </div>
+              <div clas="row">
+                <span class="highlight">I felt some pain so I take water . . .</span>
+              </div>
+            </div>
+          </li>
+
+          <!-- <li class="card">
+            <div class="flex-columns">
+              <div class="row spread">
+                <span class="subject">subject</span>
+                <span class="timestamp float-right">Mon, Sep 16, 2019 17:30</span>
+              </div>
+              <div clas="row">
+                <span class="highlight">I felt some pain so I take water . . .</span>
+              </div>
+            </div>
+          </li>
+          <li class="card">
+            <div class="flex-columns">
+              <div class="row spread">
+                <span class="subject">subject</span>
+                <span class="timestamp float-right">Mon, Sep 16, 2019 17:30</span>
+              </div>
+              <div clas="row">
+                <span class="highlight">I felt some pain so I take water . . .</span>
+              </div>
+            </div>
+          </li>
+          <li class="card">
+            <div class="flex-columns">
+              <div class="row spread">
+                <span class="subject">subject</span>
+                <span class="timestamp float-right">Mon, Sep 16, 2019 17:30</span>
+              </div>
+              <div clas="row">
+                <span class="highlight">I felt some pain so I take water . . .</span>
+              </div>
+            </div>
+          </li>
+          <li class="card">
+            <div class="flex-columns">
+              <div class="row spread">
+                <span class="subject">subject</span>
+                <span class="timestamp float-right">Mon, Sep 16, 2019 17:30</span>
+              </div>
+              <div clas="row">
+                <span class="highlight">I felt some pain so I take water . . .</span>
+              </div>
+            </div>
+          </li>
+          <li class="card">
+            <div class="flex-columns">
+              <div class="row spread">
+                <span class="subject">subject</span>
+                <span class="timestamp float-right">Mon, Sep 16, 2019 17:30</span>
+              </div>
+              <div clas="row">
+                <span class="highlight">I felt some pain so I take water . . .</span>
+              </div>
+            </div>
+          </li>
+          <li class="card">
+            <div class="flex-columns">
+              <div class="row spread">
+                <span class="subject">subject</span>
+                <span class="timestamp float-right">Mon, Sep 16, 2019 17:30</span>
+              </div>
+              <div clas="row">
+                <span class="highlight">I felt some pain so I take water . . .</span>
+              </div>
+            </div>
+          </li>
+          <li class="card">
+            <div class="flex-columns">
+              <div class="row spread">
+                <span class="subject">subject</span>
+                <span class="timestamp float-right">Mon, Sep 16, 2019 17:30</span>
+              </div>
+              <div clas="row">
+                <span class="highlight">I felt some pain so I take water . . .</span>
+              </div>
+            </div>
+          </li>
+          <li class="card">
+            <div class="flex-columns">
+              <div class="row spread">
+                <span class="subject">subject</span>
+                <span class="timestamp float-right">Mon, Sep 16, 2019 17:30</span>
+              </div>
+              <div clas="row">
+                <span class="highlight">I felt some pain so I take water . . .</span>
+              </div>
+            </div>
+          </li>
+          <li class="card">
+            <div class="flex-columns">
+              <div class="row spread">
+                <span class="subject">subject</span>
+                <span class="timestamp float-right">Mon, Sep 16, 2019 17:30</span>
+              </div>
+              <div clas="row">
+                <span class="highlight">I felt some pain so I take water . . .</span>
+              </div>
+            </div>
+          </li> -->
+
+          <li class="card">
+            <div class="flex-columns">
+              <div class="row spread">
+                <span class="subject">subject</span>
+                <span class="timestamp float-right">Mon, Sep 16, 2019 17:30</span>
+              </div>
+              <div clas="row">
+                <span class="highlight">I felt some pain so I take water . . .</span>
+              </div>
+            </div>
+          </li>
+          <li class="card">
+            <div class="flex-columns">
+              <div class="row spread">
+                <span class="subject">subject</span>
+                <span class="timestamp float-right">Mon, Sep 16, 2019 17:30</span>
+              </div>
+              <div clas="row">
+                <span class="highlight">I felt some pain so I take water . . .</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="card">
+            <div class="flex-columns">
+              <div class="row spread">
+                <span class="subject">subject</span>
+                <span class="timestamp float-right">Mon, Sep 16, 2019 17:30</span>
+              </div>
+              <div clas="row">
+                <span class="highlight">I felt some pain so I take water . . .</span>
+              </div>
+            </div>
+          </li>
+
+
+        </ul>
+      </div>
+      <div class="detail row flex hidden">
+        <form action="#" method="" id="create">
+          <fieldset>
+            <label for="description">Description</label>
+            <textarea name="Message" rows="20" cols="20"
+              onfocus="this.value=''; this.onfocus=null;">Write your syptoms description here.</textarea>
+          </fieldset>
+          <input type="submit" value="Save" id="create-submit">
+        </form>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
