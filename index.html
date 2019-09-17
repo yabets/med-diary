@@ -3,6 +3,7 @@
 
 <head>
   <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>MED diary</title>
 
@@ -31,7 +32,6 @@
     <div class="main row flex">
       <div class="list flex relative">
         <ul class="card-container row">
-
           <li class="card add-container no-padding curved-corners">
             <div class="button row primary add-btn curved-corners">
               ADD New Dairy
@@ -208,18 +208,28 @@
               </div>
             </div>
           </li>
-
-
         </ul>
       </div>
       <div class="detail row flex hidden">
         <form action="#" method="" id="create">
-          <fieldset>
-            <label for="description">Description</label>
-            <textarea name="Message" rows="20" cols="20"
-              onfocus="this.value=''; this.onfocus=null;">Write your syptoms description here.</textarea>
+          <fieldset class="flex-columns">
+
+              <label for="description">Subject: </label>
+              <input name="Message" type="text"
+                onfocus="this.value=''; this.onfocus=null;" placeholder="Write your subject here.">
+
+
+              <label for="description">Description</label>
+              <textarea name="Message" rows="3" cols="35"
+                onfocus="this.value=''; this.onfocus=null;">Write your syptoms description here.
+              </textarea>
+
+
+              <label for="date">Date and Time</label>
+              <input type="datetime-local" id="date"/>
+
           </fieldset>
-          <input type="submit" value="Save" id="create-submit">
+          <input type="submit" value="Save" id="create-submit" class="button row primary add-btn curved-corners">
         </form>
 
       </div>
