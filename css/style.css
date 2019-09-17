@@ -24,6 +24,7 @@
 
 .list {
   background: #e3e3e3;
+  width:35%;
 }
 
 .row {
@@ -148,13 +149,45 @@
 }
 
 /*  Form styles */
-label {
-	float: left;
-	text-align: right;
-	margin-right: 15px;
-	width: 100px;
+.detail {
+  padding-top: 1%;
+  font-size: 1.5em;
+  width:100%;
+}
+#create{
+  width:100%;
+  margin: 1% auto;
+}
+
+#create label {
+  float: left;
+  display: inline-block;
+	text-align: left;
+  margin-left: 1%;
+  width : 90%;
 }
 
 textarea:focus, input:focus {
-	border: 2px solid #900;
+  border: 2px solid #900;
 }
+
+#create input, textarea, select {
+  width : 90%;
+  margin: 1%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+#create input[type=text] {
+  height:30px;
+  
+}
+#create textarea {
+  width: 90%;
+  height: 70px;
+  padding: 6px 10px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
