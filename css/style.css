@@ -2,15 +2,21 @@
   margin: 0; 
   padding: 0;
   border: none;
+  box-sizing: border-box;
 }
 
 .container{
   justify-content: flex-start;
   height: 100vh;
 }
-
+ul {
+  height: 100vh;
+  padding-top: 1%;
+  overflow: auto;
+}
 .header{
-  min-height: 10vh;
+  min-height: 15vh;
+  padding-top: 1%;
   flex-grow: 1;
   justify-content: space-evenly;
   align-items: center;
@@ -87,10 +93,6 @@
   background: #e52515;
 }
 
-.card-container {
-
-}
-
 .card {
   border: 1px solid #ff6c34;
   border-top: 0px;
@@ -156,11 +158,10 @@
 }
 #create{
   width:100%;
-  margin: 1% auto;
+  margin: 0% auto;
 }
 
 #create label {
-  float: left;
   display: inline-block;
 	text-align: left;
   margin-left: 1%;
