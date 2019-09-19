@@ -1,5 +1,89 @@
 
 (() => {
+  // DATABASE FOR THE DIARY
+
+  const Dairy = (() => {
+    let db;
+    const DB_NAME = 'medDiary';
+    const DB_VERSION = 1;
+    const DB_STORE_NAME = 'diaries';
+
+    const init = async () => {
+      const promise = new Promise((resolve, reject) => {
+        if (window.indexedDB) {
+          const request = window.indexedDB.open(DB_NAME, DB_VERSION);
+          request.onerror = () => {
+            console.log('Error requesting to open database permission denied.');
+          };
+          request.onupgradeneeded = (event) => {
+            db = event.target.result;
+            const store = event.currentTarget.result.createObjectStore(DB_STORE_NAME, { keyPath: 'date' });
+            store.createIndex('subject', 'subject', { unique: false });
+            store.createIndex('date', 'date', { unique: true });
+            store.createIndex('description', 'description', { unique: false });
+          };
+          request.onsuccess = (event) => {
+            db = event.target.result;
+            db.onerror = (evt) => {
+              console.error(`Database error: ${evt.target.errorCode}`);
+            };
+
+            resolve(true);
+          };
+        } else {
+          alert("Your browser doesn't support a stable version of IndexedDB. Dairy related features will not be available.");
+          reject(new Error('indexeddb not supported!'));
+        }
+      });
+
+      return promise;
+    };
+    const getObjectStore = (storeName, mode) => {
+      const tx = db.transaction(storeName, mode);
+      return tx.objectStore(storeName);
+    };
+
+    const getAllEntries = () => new Promise((resolve) => {
+      const res = [];
+      const store = getObjectStore(DB_STORE_NAME, 'readonly');
+      const req = store.openCursor();
+
+      req.onsuccess = (evt) => {
+        const cursor = evt.target.result;
+
+        if (cursor) {
+          const retrive = store.get(cursor.key);
+          retrive.onsuccess = function (evt) {
+            const value = evt.target.result;
+            res.push(value);
+          };
+          cursor.continue();
+        } else {
+          console.log('No more entries');
+          resolve(res);
+        }
+      };
+    });
+
+    const setAnEntry = (value) => {
+      const store = getObjectStore(DB_STORE_NAME, 'readwrite');
+      store.put(value);
+    };
+    const removeAnEntry = (value) => {
+      const store = getObjectStore(DB_STORE_NAME, 'readwrite');
+      store.remove(value);
+    };
+    return {
+      init, add: setAnEntry, remove: removeAnEntry, all: getAllEntries,
+    };
+  })();
+  Dairy.init().then(() => {
+    // console.log('our diary module: ', Dairy);
+    // console.log('... ', Dairy.add({ subject: 'glad', description: 'bluh bluh', date: Date() }));
+    // console.log('show all: ', Dairy.all());
+  });
+
+  // DATABASE FOR THE DIARY
   // ##################################################### //
 
   // helper functions
