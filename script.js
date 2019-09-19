@@ -29,10 +29,25 @@
     currentLi = evt.srcElement;
   };
 
-  const newForm = () => {
+  const makeResponsive = (onCreate) => {
     const listRecordContainer = document.querySelector('#list-records-container');
     const detail = document.querySelector('#detail');
+    const mediaQuery = window.matchMedia('(max-width: 700px)'); // on mobile
+    if (mediaQuery.matches) {
+      if (onCreate) {
+        hideClass(listRecordContainer);
+        showClass(detail);
+      } else {
+        hideClass(detail);
+        showClass(listRecordContainer);
+      }
+    } else {
+      showClass(listRecordContainer);
+      showClass(detail);
+    }
+  };
 
+  const makeLi = () => {
     // create one list
     const li = document.createElement('LI');
     const div = document.createElement('DIV');
@@ -61,30 +76,18 @@
     divCopy.appendChild(divCopy2);
 
     liCopy.appendChild(divCopy);
-    ulForRecords.appendChild(liCopy);
-
-
     liCopy.addEventListener('click', edit);
 
+    return liCopy;
+  };
+
+  const newForm = () => {
     // show form and set the currentLi value
     form.classList.remove('hide');
-    currentLi = ulForRecords.lastElementChild;
-    console.log('li from add: ', currentLi);
-
-
-    // check size of browser and render accordingly
-    const mediaQuery = window.matchMedia('(max-width: 700px)'); // on mobile
-    if (mediaQuery.matches) {
-      hideClass(listRecordContainer);
-      showClass(detail);
-    } else {
-      showClass(listRecordContainer);
-      showClass(detail);
-    }
+    makeResponsive(true);
   };
 
   newDiary.addEventListener('click', newForm);
-
 
   const save = document.querySelector('#create-submit');
 
@@ -115,7 +118,10 @@
       subject.value = '';
       description.value = '';
       date.value = '';
+      makeResponsive(false);
+      currentLi = makeLi();
       recordInList({ subject: subjectValue, description: descriptionValue, date: dateValue });
+      ulForRecords.appendChild(currentLi);
     } else {
       alert('wrong inputs');
     }
