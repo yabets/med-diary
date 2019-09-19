@@ -4,7 +4,10 @@
   border: none;
   box-sizing: border-box;
 }
-
+.hide {
+  display: none;
+  height: 0px;
+}
 .container{
   justify-content: flex-start;
   height: 100vh;
@@ -157,8 +160,8 @@ ul {
   width:100%;
 }
 #create{
-  width:100%;
-  margin: 0% auto;
+  width: 85%;
+  margin: 2% auto;
 }
 
 #create label {
@@ -180,15 +183,17 @@ textarea:focus, input:focus {
   border-radius: 4px;
 }
 
-#create input[type=text] {
+#create input[type=text], input[type=datetime-local]{
   height:30px;
   
 }
 #create textarea {
   width: 90%;
   height: 70px;
-  padding: 6px 10px;
+  padding-left: 2px;
   background-color: #f8f8f8;
   resize: none;
 }
+
+
 
